@@ -1,3 +1,4 @@
+from module_3 import unitTesting
 import openai
 import requests
 import os
@@ -9,6 +10,9 @@ load_dotenv()
 key =os.environ['WEB_API_KEY']
 # Set OpenAI API key
 openai.api_key = key
+
+
+
 
 def WriteSummary(content):
     #this function asks ChatGPT to follow the prompt of the inserted content from the function call.
@@ -24,16 +28,24 @@ def OutputToFile(idx,title,summary):
 
 def performAction():
     #this is the over-lying function that runs the program. It opens the urls to scrape the article and then indexes through each line and calls the output function
-    with open('urls.txt', 'r') as file:
-            urls = file.readlines()
+    #if(unitTesting.has_urls(urls.txt)):
+                 
+    #else:
+    #    sys.exit()
+    #with open('urls.txt', 'r') as file:
+            #urls = file.readlines()
+
+    urls = unitTesting.has_url()
+
     for idx, url in enumerate(urls):
             response = requests.get(url.strip())
             soup = BeautifulSoup(response.content, 'html.parser')
-            title = soup.find('title').get_text()                   #collects article title
-            try:                                                    #attempts to get the article and put it into content
-                content = soup.find('article').get_text()
-            except:
-                content = "There was no article in this "
+            title = unitTesting.has_title(soup)
+            #try:                                                    #attempts to get the article and put it into content
+            #    content = soup.find('article').get_text()
+            #except:
+            #    content = "There was no article in this "
+            content = unitTesting.has_content(soup)
             #there is no safeguard to make sure that an article is suitable this time, it is expected that only good articles are collected. If not, there is not going to be a summary for the article
             #video articles do not work, if you look at the example output #2, I included that as an extra to show that.
             OutputToFile(idx,title,WriteSummary(content))                  #passing in the idx title, and function(that will return the summary) allows for the file name to be indexed and the title and summary to be passed through.

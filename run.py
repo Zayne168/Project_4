@@ -1,7 +1,7 @@
 import module_1.verifier
 import module_2.scrapper
 import module_3.aioutput
-
+import module_3.unitTesting
 
 
 #Zayne Bonner
@@ -27,7 +27,9 @@ import module_3.aioutput
 def main():
     #this runs module_3, which is the new OpenAI API scrapper for project 3, 
     module_3.aioutput.performAction()
-    
+    module_3.unitTesting.has_equal_index()
+    #print(module_3.unitTesting.has_url())
+    #print(module_3.unitTesting.has_title(module_3.aioutput.performAction.soup))
     #module_1.verifier.Verify()
     #for idx,e in enumerate(module_1.verifier.verified):  #verifies each article for module_2 to utilize
     #    verified.append(module_1.verifier.verified[idx])
