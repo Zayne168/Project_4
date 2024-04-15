@@ -1,6 +1,7 @@
 import openai
 import requests
 import os
+import unitTesting
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
@@ -8,7 +9,12 @@ from dotenv import load_dotenv
 load_dotenv()
 key =os.environ['WEB_API_KEY']
 # Set OpenAI API key
-openai.api_key = key
+
+if(unitTesting.TestKey(key)):
+    openai.api_key = key
+else:
+    print("API Key invalid, please fix and retry")
+    sys.exit()
 
 def WriteSummary(content):
     #this function asks ChatGPT to follow the prompt of the inserted content from the function call.
