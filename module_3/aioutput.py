@@ -2,13 +2,17 @@ import openai
 import requests
 import os
 import sys
-import unitTesting
+from module_3 import unitTesting
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 
 load_dotenv()
-key =os.environ['WEB_API_KEY']
+try:
+    key =os.environ['WEB_API_KEY']
+except:
+    print("Key not found")
+    sys.exit()
 # Set OpenAI API key
 
 if(unitTesting.TestKey(key)):                       #TestCase1
@@ -27,6 +31,9 @@ def OutputToFile(idx,title,summary):
     #this prints the summary and title to the ai_gen folder with all of the output files.
     with open(f'Data/ai_gen/output_{idx}.txt', 'w') as output_file:                                 
         output_file.write(f"Title: {title}\nSummary: {summary}")
+    if(unitTesting.CountWords(f'Data/ai_gen/output_{idx}.txt')>50):           #TestCase4
+        print("AI made summary >50 words. Proceeding, but noted.")
+        
 
 
 def performAction():
