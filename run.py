@@ -12,6 +12,7 @@ def main():
     #module_3.aioutput.performAction()
     
     print(module_3.unitTesting.TestKey(module_3.aioutput.key))
+    module_3.unitTesting.Outputs()
 
     #module_1.verifier.Verify()                           #all of this is project 2 stuff; not necessary.
     #for idx,e in enumerate(module_1.verifier.verified):  #verifies each article for module_2 to utilize

@@ -1,6 +1,7 @@
 import openai
 import requests
 import os
+import sys
 import unitTesting
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -10,7 +11,7 @@ load_dotenv()
 key =os.environ['WEB_API_KEY']
 # Set OpenAI API key
 
-if(unitTesting.TestKey(key)):
+if(unitTesting.TestKey(key)):                       #TestCase1
     openai.api_key = key
 else:
     print("API Key invalid, please fix and retry")
