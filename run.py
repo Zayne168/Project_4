@@ -6,30 +6,16 @@ import module_3.unitTesting
 
 #Zayne Bonner
 #800756759
-#This is the run.py file for my Project
-#in the main I call the verify function from my verification module
-#I then copy the verified array from the module and pass it into the scrapper
-#the init files declare each module folder an actual module. I had troubles without them. no comments necessary on them.
-#
-#The SOLID principle utilized here is the Single Responsibility Principle
-#First I seperated the two main responsibilities into seperate modules(verifying urls and scrapping)
-#then I broke down the two sub-responsibilities of the scrapper into 2 functions within the module
-#This allows me to adjust my modules and functions if I want a different desired output
-#I can also decide what I want from my run.py better. If I only want processed or raw I can do just one set or the other by calling the corresponding function.
-#I can also easily adjust the individual classes with them being independent.#
-
-
-#I also utlilized OCP in my module_2. I seperated the scrapper module into seperate functions.
-#Adding a new scrap format involves adding a new function definition without modifying anything previously made.
-
 
 
 def main():
     #this runs module_3, which is the new OpenAI API scrapper for project 3, 
+
+    module_3.unitTesting.UrlFileExists()                #Test Case 3
     module_3.aioutput.performAction()
+    module_3.unitTesting.Outputs()
     module_3.unitTesting.has_equal_index()
-    #print(module_3.unitTesting.has_url())
-    #print(module_3.unitTesting.has_title(module_3.aioutput.performAction.soup))
+
     #module_1.verifier.Verify()
     #for idx,e in enumerate(module_1.verifier.verified):  #verifies each article for module_2 to utilize
     #    verified.append(module_1.verifier.verified[idx])
