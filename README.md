@@ -42,3 +42,15 @@ Creating an OpenAI API and API Key
 1. Back to this program. in your local version of this program repository, make a file called ".env"
 2. in this file paste "WEB_API_KEY='-your API key you generated above here- '"
 3. your run.py should then work
+
+
+# Test Cases
+This project is an extension of Project 3 with Jack W. We added 8 total test cases to ensure our program runs fluidly each time and to catch and alert the user of any mal-use. 
+1.  We test whether each url has a ".com" which would indicate if a url is valid,
+2.  test whether there is a url file at all,
+3.  test whether the ai makes a <50 word summary or if its too long,
+4.  test whether each article has a title,
+5.  test whether each article has content to be summarized,
+6.  test whether there is an API key to be taken in,
+7.  test that there is the correct number of output files comparative to the amount of URLS in urls.txt,
+8.  and we test whether the system is outputting at all. 
