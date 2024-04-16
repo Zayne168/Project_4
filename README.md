@@ -46,4 +46,11 @@ Creating an OpenAI API and API Key
 
 # Test Cases
 This project is an extension of Project 3 with Jack W. We added 8 total test cases to ensure our program runs fluidly each time and to catch and alert the user of any mal-use. 
-We test whether each url has a ".com" which would indicate if a url is valid, We test whether there is a url file at all, test whether the ai makes a <50 word summary or if its too long, we test whether each article has a title, we test whether each article has content to be summarized, we test whether there is an API key to be taken in, we test that there is the correct number of output files, and we test whether the system is outputting at all. 
+1.  We test whether each url has a ".com" which would indicate if a url is valid,
+2.  test whether there is a url file at all,
+3.  test whether the ai makes a <50 word summary or if its too long,
+4.  test whether each article has a title,
+5.  test whether each article has content to be summarized,
+6.  test whether there is an API key to be taken in,
+7.  test that there is the correct number of output files comparative to the amount of URLS in urls.txt,
+8.  and we test whether the system is outputting at all. 
