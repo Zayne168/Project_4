@@ -5,7 +5,7 @@ import os.path
 import sys
 from bs4 import BeautifulSoup
 
-def has_url():
+def has_url():                                                       #tests whether the urls.txt file had proper URLS with .com
     with open('urls.txt', 'r') as file:
         urls = file.readlines()
     
@@ -18,7 +18,7 @@ def has_url():
         sys.exit()
 
     
-def has_title(soup):
+def has_title(soup):                                               #Checks to see if a title is in each news article and if not, replaces the title with the string on line 28.
               
     title = soup.find('title').get_text()
     if(bool(title)):
@@ -28,11 +28,11 @@ def has_title(soup):
         title = "title not found"
         return title
 
-def contains_com(input_array: list[str]) -> list[bool]:
+def contains_com(input_array: list[str]) -> list[bool]:            #checks for .com
     #"""Check if each string in the input array contains '.com'."""
     return [".com" in string for string in input_array]
 
-def has_equal_index():
+def has_equal_index():                                              #tests whether the urls file has as many URLS as the outputs repository has output files after program runs. Alerts user if not
     with open('urls.txt', 'r') as file:
         urls = file.readlines()
     
@@ -49,7 +49,7 @@ def has_equal_index():
         print("Uneven Count")
         sys.exit()
     
-def has_content(soup):
+def has_content(soup):                                        #tests whether each article has content that can be summarized, if not, replaces it with the string on line 57.
     try:                                                    #attempts to get the article and put it into content
                 content = soup.find('article').get_text()
                 return content
@@ -57,27 +57,27 @@ def has_content(soup):
                 content = "There was no article in this "
                 return content
 
-def TestKey(key):                                           #tests if a key exists
+def TestKey(key):                                           #tests if a key exists, if not system will exit.
     if(bool(key)):
        return True
     else:
         return False
     
-def Outputs():                                             #tests if the first output goes through to make file
+def Outputs():                                             #tests if the first output goes through to make file. alerts of failure.
         if(os.path.isfile("Data/ai_gen/output_0.txt")):
             print("")
         else:
             print("First output failed, please try again")
             sys.exit()
 
-def UrlFileExists():                                        #tests if the urls.txt file exists at all
+def UrlFileExists():                                        #tests if the urls.txt file exists at all, if not it exits system.
     if(os.path.isfile("urls.txt")):
        print("")
     else:
         print("No urls.txt file found.")
         sys.exit()
 
-def CountWords(filename):                                   #tests the number of spaces in summary to see how many words are used.(should be <=49)
+def CountWords(filename):                                   #tests the number of spaces in summary to see how many words are used. If a summary is too long it notifies the user but keeps going with program
     with open(filename, 'r') as file:
         lines = file.readlines()
         second_line = lines[1]
