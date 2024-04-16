@@ -4,8 +4,8 @@
 # My Scrapper
 This software will scrape as many urls as there are in 'urls.txt' of there data and use BeautifulSoup and OpenAI API to scrape articles. There are three modules, a verifier, a manual scraper, and a ChatGPT based Scraper. The verifer is used for the manual scraper to determine which links are valid to be scraped and which ones are not. The manual scraper module(module 2) scrapes the verified urls in both a raw and processed format. The AI Scraper is independent and attempts to scrape each url no matter the validity.
 
-## The set up
-1. it is assumed that all of the program file sare downloaded 
+# The set up
+1. it is assumed that all of the program files are downloaded 
 2. Set up the conda environment. We are going to assume Conda is installed for this. in your terminal, please type: conda create --name *PreferredEnvName* --file requirement.yaml 
 3. you can name it whatever you like in the above code.
 4. This creates the environment from the provided requirement.yaml file in this folder.
@@ -42,3 +42,8 @@ Creating an OpenAI API and API Key
 1. Back to this program. in your local version of this program repository, make a file called ".env"
 2. in this file paste "WEB_API_KEY='-your API key you generated above here- '"
 3. your run.py should then work
+
+
+# Test Cases
+This project is an extension of Project 3 with Jack W. We added 8 total test cases to ensure our program runs fluidly each time and to catch and alert the user of any mal-use. 
+We test whether each url has a ".com" which would indicate if a url is valid, We test whether there is a url file at all, test whether the ai makes a <50 word summary or if its too long, we test whether each article has a title, we test whether each article has content to be summarized, we test whether there is an API key to be taken in, we test that there is the correct number of output files, and we test whether the system is outputting at all. 
